@@ -28,7 +28,7 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/addTask', (req, res) => {
-  db.collection('tasks').insertOne(req.body)
+  db.collection('tasks').insertOne({taskName:req.body.taskName,completed:false})
   .then(result => {
     console.log('Task Added')
     res.redirect('/')
@@ -45,13 +45,23 @@ app.delete('/deleteTask', (req,res) => {
   .catch(error => console.error(error))
 })
 
-app.put('/updateTask', (req,res) => {
+app.put('/completeTask', (req,res) => {
   db.collection('tasks').updateOne({taskName:req.body.taskNameS},
-    {$set: {completed: "Completed"}}
+    {$set: {completed:true}}
   )
   .then(result => {
     console.log('Task Completed')
     res.json('Task Completed')
+  })
+  .catch(error => console.error(error))
+})
+app.put('/uncompleteTask', (req,res) => {
+  db.collection('tasks').updateOne({taskName:req.body.taskNameS},
+    {$set: {completed:false}}
+  )
+  .then(result => {
+    console.log('Task Marked inComplete')
+    res.json('Task Marked inComplete')
   })
   .catch(error => console.error(error))
 })

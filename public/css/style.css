@@ -1,0 +1,12 @@
+.complete{
+  text-decoration: line-through;
+  color: lightgrey;
+}
+
+.fa-times {
+  color: red;
+}
+
+.fa-check {
+  color: green;
+}

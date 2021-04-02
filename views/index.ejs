@@ -15,9 +15,13 @@
   <ul class="todolist">
   <% for(let i=0; i < info.length; i++) {%>
       <li class="todotask">
-          <span><%= info[i].taskName %></span>
-          <span><%= info[i].completed %></span>
-          <span class='fa fa-thumbs-up'></span>
+          <% if(info[i].completed === true) {%>
+              <span class='complete'><%= info[i].taskName %></span>
+              <span class='fa fa-times'></span>
+          <% }else{ %>
+              <span><%= info[i].taskName %></span>
+              <span class='fa fa-check'></span>
+          <% } %>
           <span id='trash' class='fa fa-trash'></span>
       </li>
   <% } %>
