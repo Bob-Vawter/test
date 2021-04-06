@@ -17,9 +17,11 @@
       <li class="todotask">
           <% if(info[i].completed === true) {%>
               <span class='complete'><%= info[i].taskName %></span>
+              <span hidden><%= info[i]._id %></span>
               <span class='fa fa-times'></span>
           <% }else{ %>
               <span><%= info[i].taskName %></span>
+              <span hidden><%= info[i]._id %></span>
               <span class='fa fa-check'></span>
           <% } %>
           <span id='trash' class='fa fa-trash'></span>

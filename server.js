@@ -3,6 +3,7 @@ const app = express()
 const MongoClient = require('mongodb').MongoClient
 const PORT = 3000
 require('dotenv').config()
+const mongodb = require('mongodb')
 
 let db,
 dbConnectionStr = process.env.DB_STRING,
@@ -37,7 +38,7 @@ app.post('/addTask', (req, res) => {
 })
 
 app.delete('/deleteTask', (req,res) => {
-  db.collection('tasks').deleteOne({taskName:req.body.taskNameS})
+  db.collection('tasks').deleteOne({_id: new mongodb.ObjectID(req.body.iDS)})
   .then(result => {
     console.log('Task Removed')
     res.json('Task Deleted')
@@ -46,7 +47,7 @@ app.delete('/deleteTask', (req,res) => {
 })
 
 app.put('/completeTask', (req,res) => {
-  db.collection('tasks').updateOne({taskName:req.body.taskNameS},
+  db.collection('tasks').updateOne({_id: new mongodb.ObjectID(req.body.iDS)},
     {$set: {completed:true}}
   )
   .then(result => {
@@ -56,7 +57,7 @@ app.put('/completeTask', (req,res) => {
   .catch(error => console.error(error))
 })
 app.put('/uncompleteTask', (req,res) => {
-  db.collection('tasks').updateOne({taskName:req.body.taskNameS},
+  db.collection('tasks').updateOne({_id: new mongodb.ObjectID(req.body.iDS)},
     {$set: {completed:false}}
   )
   .then(result => {
