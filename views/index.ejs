@@ -12,6 +12,7 @@
 </head>
 <body>
   <h1>To-Do List</h1>
+
   <ul class="todolist">
   <% for(let i=0; i < info.length; i++) {%>
       <li class="todotask">
@@ -28,6 +29,8 @@
       </li>
   <% } %>
   </ul>
+
+  <h3>Left to Do: <%=left%></h3>
 
   <h2>Add A Task:</h2>
 

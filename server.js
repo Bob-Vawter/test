@@ -20,12 +20,18 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended:true }))
 app.use(express.json())
 
-app.get('/',(req,res)=>{
-  db.collection('tasks').find().toArray()
-  .then(data => {
-    res.render('index.ejs', { info:data })
-  })
-  .catch(error => console.error(error))
+// app.get('/',(req,res)=>{
+//   // db.collection('tasks').find().toArray()
+//   // .then(data => {
+//   //   res.render('index.ejs', { info:data })
+//   // })
+//   // .catch(error => console.error(error))
+// })
+
+app.get('/', async (req,res)=>{
+  const data = await db.collection('tasks').find().toArray()
+  const leftToDo = await db.collection('tasks').countDocuments({completed:false})
+  res.render('index.ejs', { info:data, left:leftToDo })
 })
 
 app.post('/addTask', (req, res) => {
