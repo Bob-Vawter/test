@@ -29,9 +29,13 @@ app.use(express.json())
 // })
 
 app.get('/', async (req,res)=>{
-  const data = await db.collection('tasks').find().toArray()
-  const leftToDo = await db.collection('tasks').countDocuments({completed:false})
-  res.render('index.ejs', { info:data, left:leftToDo })
+  try {
+    const data = await db.collection('tasks').find().toArray()
+    const leftToDo = await db.collection('tasks').countDocuments({completed:false})
+    res.render('index.ejs', { info:data, left:leftToDo })
+  } catch (err) {
+    console.error(err)
+  }
 })
 
 app.post('/addTask', (req, res) => {

@@ -33,7 +33,6 @@ async function deleteTask (){
 }
 
 async function completeTask (){
-  //const tName = this.parentNode.childNodes[1].innerText
   const iD = this.parentNode.dataset.id
 
   try{
@@ -41,7 +40,6 @@ async function completeTask (){
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        //'taskNameS': tName,
         'iDS': iD
       })
     })
@@ -54,7 +52,6 @@ async function completeTask (){
 }
 
 async function uncompleteTask (){
-  //const tName = this.parentNode.childNodes[1].innerText
   const iD = this.parentNode.dataset.id
 
   try{
@@ -62,7 +59,6 @@ async function uncompleteTask (){
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        //'taskNameS': tName,
         'iDS': iD
       })
     })
