@@ -13,14 +13,14 @@ Array.from(unstrikeTask).forEach((element)=>{
 })
 
 async function deleteTask (){
-  const tName = this.parentNode.childNodes[1].innerText
-  const iD = this.parentNode.childNodes[3].innerText
+  //const tName = this.parentNode.childNodes[1].innerText
+  const iD = this.parentNode.dataset.id
   try{
     const res = await fetch('deleteTask', {
       method: 'delete',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        'taskNameS': tName,
+        //'taskNameS': tName,
         'iDS': iD
       })
     })
@@ -33,15 +33,15 @@ async function deleteTask (){
 }
 
 async function completeTask (){
-  const tName = this.parentNode.childNodes[1].innerText
-  const iD = this.parentNode.childNodes[3].innerText
+  //const tName = this.parentNode.childNodes[1].innerText
+  const iD = this.parentNode.dataset.id
 
   try{
     const res = await fetch('completeTask', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        'taskNameS': tName,
+        //'taskNameS': tName,
         'iDS': iD
       })
     })
@@ -54,15 +54,15 @@ async function completeTask (){
 }
 
 async function uncompleteTask (){
-  const tName = this.parentNode.childNodes[1].innerText
-  const iD = this.parentNode.childNodes[3].innerText
+  //const tName = this.parentNode.childNodes[1].innerText
+  const iD = this.parentNode.dataset.id
 
   try{
     const res = await fetch('uncompleteTask', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        'taskNameS': tName,
+        //'taskNameS': tName,
         'iDS': iD
       })
     })
