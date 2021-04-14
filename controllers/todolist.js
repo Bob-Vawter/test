@@ -22,22 +22,22 @@ module.exports = {
   completeTask: async (req,res)=>{
     try{
       await Todo.findOneAndUpdate({_id:req.body.iDS},{
-        complete: true
+        completed: true
       })
       console.log('Marked Completed')
       res.json('Marked Complete')
-    }catch{err}{
+    }catch(err){
       console.log(err)
     }
   },
   uncompleteTask: async (req,res)=>{
     try{
       await Todo.findOneAndUpdate({_id:req.body.iDS},{
-        complete: false
+        completed: false
       })
       console.log('Marked InComplete')
       res.json('Marked InComplete')
-    }catch{err}{
+    }catch(err){
       console.log(err)
     }
   },
