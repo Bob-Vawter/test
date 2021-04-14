@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended:true }))
 app.use(express.json())
 
 app.use('/',homeRoutes)
-app.use('/',todoRoutes)
+app.use('/todolist',todoRoutes)
 
 app.listen(process.env.PORT || PORT, ()=>{
 //  console.log(process.env.PORT)

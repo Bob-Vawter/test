@@ -15,7 +15,7 @@ Array.from(unstrikeTask).forEach((element)=>{
 async function deleteTask (){
   const iD = this.parentNode.dataset.id
   try{
-    const res = await fetch('deleteTask', {
+    const res = await fetch('todolist/deleteTask', {
       method: 'delete',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -34,7 +34,7 @@ async function completeTask (){
   const iD = this.parentNode.dataset.id
 
   try{
-    const res = await fetch('completeTask', {
+    const res = await fetch('todolist/completeTask', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -53,7 +53,7 @@ async function uncompleteTask (){
   const iD = this.parentNode.dataset.id
 
   try{
-    const res = await fetch('uncompleteTask', {
+    const res = await fetch('todolist/uncompleteTask', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

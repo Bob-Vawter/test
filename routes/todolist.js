@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const todosController = require('../controllers/todolist')
 
-router.get('/todolist', todosController.getTasks)
+router.get('/', todosController.getTasks)
 
 router.post('/addTask', todosController.addTask)
 
