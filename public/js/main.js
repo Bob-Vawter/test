@@ -13,14 +13,12 @@ Array.from(unstrikeTask).forEach((element)=>{
 })
 
 async function deleteTask (){
-  //const tName = this.parentNode.childNodes[1].innerText
   const iD = this.parentNode.dataset.id
   try{
     const res = await fetch('deleteTask', {
       method: 'delete',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        //'taskNameS': tName,
         'iDS': iD
       })
     })
