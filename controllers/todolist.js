@@ -3,7 +3,6 @@ const Todo = require('../models/todolist')
 module.exports = {
   getTasks: async (req,res)=>{
     try{
-      console.log('trying')
       const data = await Todo.find()
       const leftToDo = await Todo.countDocuments({completed: false})
       res.render('todolist.ejs',{info: data, left: leftToDo})
