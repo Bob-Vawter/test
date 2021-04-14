@@ -20,14 +20,6 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended:true }))
 app.use(express.json())
 
-// app.get('/',(req,res)=>{
-//   // db.collection('tasks').find().toArray()
-//   // .then(data => {
-//   //   res.render('index.ejs', { info:data })
-//   // })
-//   // .catch(error => console.error(error))
-// })
-
 app.get('/', async (req,res)=>{
   try {
     const data = await db.collection('tasks').find().toArray()
