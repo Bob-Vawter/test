@@ -6,12 +6,18 @@ module.exports = {
       const data = await Todo.find()
       const leftToDo = await Todo.countDocuments({completed: false})
       res.render('todolist.ejs',{info: data, left: leftToDo})
+
+      // const data = await Todo.find({microsoftId: req.user.microsoftId})
+      // const leftToDo = await Todo.countDocuments({microsoftId: req.user.microsoftId,completed: false})
+      // res.render('todolist.ejs',{info: data, left: leftToDo, user: req.user})
+
     }catch(err){
       console.log(err)
     }
   },
   addTask: async (req,res)=>{
     try{
+      // , microsoftId: req.user.microsoftId
       await Todo.create({taskName: req.body.taskName, completed: false})
       console.log('Task add to list!')
       res.redirect('/todolist')

@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const todosController = require('../controllers/todolist')
+const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
-router.get('/', todosController.getTasks)
+router.get('/', ensureAuth, todosController.getTasks)
 
 router.post('/addTask', todosController.addTask)
 
