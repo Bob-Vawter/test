@@ -1,30 +1,32 @@
 {
   "name": "todolist-api",
   "version": "1.0.0",
-  "description": "I am a proficient Full Stack Developer. With extensive knowledge in HTML, CSS, and Javascript. I am also a certified IT professional with numerous certifications including ServiceNow. I have completed a Bachelors of Electrical Engineering, with a hard focus of studies in software engineering. As a software engineer, I aspire to help bring creative projects to life and demonstrate my commitment to developing world-class software solutions for your company.",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "connect-mongo": "^3.2.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mongodb": "^3.6.6",
+    "mongoose": "^5.12.4",
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-azure-ad": "^4.3.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Bob-Vawter/todolist-api.git"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Bob-Vawter/todolist-api/issues"
+    "url": "https://github.com/Bob-Vawter/todolist-api"
   },
   "homepage": "https://github.com/Bob-Vawter/todolist-api#readme",
-  "dependencies": {
-    "connect-mongo": "^4.4.1",
-    "dotenv": "^8.2.0",
-    "ejs": "^3.1.6",
-    "express": "^4.17.1",
-    "express-session": "^1.17.1",
-    "mongodb": "^3.6.5",
-    "mongoose": "^5.12.3",
-    "passport": "^0.4.1",
-    "passport-azure-ad": "^4.3.0"
-  }
+  "description": ""
 }
